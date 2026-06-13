@@ -5,6 +5,9 @@
 
 'use strict';
 
+// Wait for DOM to be fully loaded before executing
+document.addEventListener('DOMContentLoaded', function() {
+
 /* ==================== THEME TOGGLE ==================== */
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
@@ -1034,25 +1037,25 @@ openBlogBtns.forEach(btn => {
     const post = blogPosts[blogId];
     
     if (post) {
-      blogModalBody.innerHTML = \`
+      blogModalBody.innerHTML = `
         <div class="blog-modal-header">
-          <span class="blog-modal-category">\${post.category}</span>
-          <h2 class="blog-modal-title">\${post.title}</h2>
+          <span class="blog-modal-category">${post.category}</span>
+          <h2 class="blog-modal-title">${post.title}</h2>
           <div class="blog-modal-meta">
-            <span>\${post.date}</span>
-            <span>\${post.readTime}</span>
+            <span>${post.date}</span>
+            <span>${post.readTime}</span>
           </div>
         </div>
         <div class="blog-modal-image">
-          <img src="\${post.image}" alt="\${post.title}" loading="lazy" />
+          <img src="${post.image}" alt="${post.title}" loading="lazy" />
         </div>
         <div class="blog-modal-text">
-          \${post.content}
+          ${post.content}
         </div>
         <div class="blog-modal-footer">
           <a href="#booking" class="btn-primary" onclick="closeBlogModal()">Book an Appointment</a>
         </div>
-      \`;
+      `;
       
       blogModal.classList.add('active');
       blogModal.setAttribute('aria-hidden', 'false');
@@ -1094,3 +1097,5 @@ if (blogModal) {
 /* ==================== INIT ==================== */
 console.log('%c✦ ELIM Hair & Beauty ✦', 'color: #FF4FA3; font-size: 16px; font-weight: bold;');
 console.log('%cBuilt with elegance and care.', 'color: #888; font-size: 12px;');
+
+}); // End of DOMContentLoaded
